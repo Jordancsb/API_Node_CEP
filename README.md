@@ -49,16 +49,13 @@ Suba o servidor backend com comando:
 ```bash
 npm start
 ```
-Suba o servidor frontend com comando:
-```bash
-Abra-o com Lite Server ou Preview de HTML de sua preferencia
-```
-Digite CEP que deseja consultar e clique 
+Execute o index.html para exibir o frontend - Abra-o com Lite Server ou Preview de HTML de sua preferencia
 
+### Ferramentas Utilizadas
+- Visual Studio Code
+- WSL Ubuntu 20.04LTS
+- Node v16.15.1
+- npm 8.11.0
 
-
-#### Autores
+### Autor
 Jordan Cruz
-
-#### Fonte
-[MIT](https://choosealicense.com/licenses/mit/)

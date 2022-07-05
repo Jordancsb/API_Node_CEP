@@ -1,7 +1,7 @@
 const cep = document.querySelector("#cep")
 const insertInfo = document.querySelector(".insertInfo");
 
-document.getElementById("button").addEventListener("click", (e)=>{
+const btn = document.getElementById("button").addEventListener("click", (e)=>{
     let search = cep.value.replace("-","")
     const options = {
       method: 'GET',
@@ -13,14 +13,20 @@ document.getElementById("button").addEventListener("click", (e)=>{
       .then(response => {response.json()
         .then (data => { 
           try {
-            insertInfo.innerHTML = "";
-            createText('Rua: ' + data.rua);
-            createText('Bairro: ' + data.bairro);
-            createText('Cidade/Estado: ' + data.localidade + ' - ' + data.uf);
-            createText('IBGE: ' + data.ibge);
-            createText('DDD: ' + data.ddd);
+            if(data.rua != undefined){
+              insertInfo.innerHTML = ""
+              createText('Rua: ' + data.rua);
+              createText('Bairro: ' + data.bairro);
+              createText('Cidade/Estado: ' + data.localidade + ' - ' + data.uf);
+              createText('IBGE: ' + data.ibge);
+              createText('DDD: ' + data.ddd);
+              btn.remove();
+            } else {
+              createText('Insira um CEP Válido!')
+            }
           } catch (error) {
-            createText('Insira um CEP Válido!')
+            console.error(error.name);
+            console.error(error.message);
           }
         })
     })

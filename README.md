@@ -23,8 +23,10 @@ Desenvolva uma aplicação em NodeJS para buscar o endereço, conforme o CEP inf
 </details>
 
 ### Projeto
-
 <img width="700" src="./src/assets/ReadmeGif.gif">
+
+#### Diagrama
+<img width="700" src="./src/assets/diagrama.JPG">
 
 ### Instalação
 

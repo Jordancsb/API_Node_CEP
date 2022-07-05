@@ -9,24 +9,20 @@ document.getElementById("button").addEventListener("click", (e)=>{
       cache: 'default'
     }
 
-    fetch(`https://viacep.com.br/ws/${search}/json/`, options)
+    fetch(`http://localhost:8001/ws/${search}/json/`, options)
       .then(response => {response.json()
         .then (data => { 
-          insertInfo.innerHTML = "";
-          createText('Rua: ' + data.logradouro);
-          createText('Bairro: ' + data.bairro);
-          createText('Cidade/Estado: ' + data.localidade + ' - ' + data.uf);
-          createText('IBGE: ' + data.ibge);
-          createText('DDD: ' + data.ddd);
+          try {
+            insertInfo.innerHTML = "";
+            createText('Rua: ' + data.rua);
+            createText('Bairro: ' + data.bairro);
+            createText('Cidade/Estado: ' + data.localidade + ' - ' + data.uf);
+            createText('IBGE: ' + data.ibge);
+            createText('DDD: ' + data.ddd);
+          } catch (error) {
+            createText('Insira um CEP Válido!')
+          }
         })
     })
-    .catch(e => alert('Erro ao buscar CEP!'));
+    .catch(e => createText('Erro no Servidor!'));
 })
-
-function createText (responseCep) {
-  let createEl = document.createElement('p');
-  let createText = document.createTextNode(responseCep);
-
-  createEl.appendChild(createText);
-  insertInfo.appendChild(createEl);
-}
